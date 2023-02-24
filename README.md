@@ -6,7 +6,7 @@ This is a [bindgen](https://github.com/rust-lang/rust-bindgen) wrapper of [Loic 
 # Using
 
 If `libOL.1.so` is not in the standard location you should define required environment variables in
-[`.cargo/config.toml`](https://doc.rust-lang.org/cargo/reference/config.html#env) (or defined them in any other way):
+[`.cargo/config.toml`](https://doc.rust-lang.org/cargo/reference/config.html#env) (or define them in any other way):
 
 ```toml
 [env]
