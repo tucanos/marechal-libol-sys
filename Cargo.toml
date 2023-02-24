@@ -2,6 +2,7 @@
 name = "marechal-libol-sys"
 version = "0.1.0"
 edition = "2021"
+links = "OL_1"
 
 [build-dependencies]
 bindgen = "0.63.0"

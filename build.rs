@@ -23,13 +23,19 @@ fn main() {
             .ok(),
     };
     if let Some(lib_dir) = lib_dir {
-        println!(
-            "cargo:rustc-link-search={}",
-            lib_dir
-                .into_os_string()
-                .into_string()
-                .expect("Not an UTF-8 path")
-        );
+        let lib_dir = lib_dir
+            .into_os_string()
+            .into_string()
+            .expect("Not an UTF-8 path");
+        println!("cargo:rustc-link-search={}", lib_dir);
+        #[cfg(target_os = "macos")]
+        println!("cargo:rustc-link-arg=-Wl,-rpath,{}", lib_dir);
+        #[cfg(target_os = "linux")]
+        println!("cargo:rustc-link-arg=-Wl,-rpath,{}", lib_dir);
+        // non standard key
+        // see https://doc.rust-lang.org/cargo/reference/build-script-examples.html#linking-to-system-libraries
+        // and https://github.com/rust-lang/cargo/issues/5077
+        println!("cargo:rpath={}", lib_dir);
     }
     println!("cargo:rerun-if-changed={}", libol_h);
     println!("cargo:rustc-link-lib=OL.1");
