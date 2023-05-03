@@ -20,7 +20,7 @@ LIBOL_LIB_DIR="/path/to/lib"
 Then
 
 ```
-cargo add --git https://github.com/jeromerobert/marechal-libol-sys.git
+cargo add --git https://github.com/tucanos/marechal-libol-sys.git
 ```
 
 To have `rpath` propagated to your executables add the following code to you `build.rs` (see this [bug report](https://github.com/rust-lang/cargo/issues/5077) for details).
